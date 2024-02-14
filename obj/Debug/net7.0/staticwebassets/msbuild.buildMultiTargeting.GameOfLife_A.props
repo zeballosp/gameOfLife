@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GameOfLife_A.props" />
+</Project>
