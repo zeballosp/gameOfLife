@@ -1,4 +1,5 @@
 using GameOfLife_A.Models;
+using GameOfLife_A.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 IServiceCollection serviceCollection = builder.Services.AddDbContext<GameOfLifeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultValue")));
+builder.Services.AddScoped<GameOfLifeService>();
 
 var app = builder.Build();
 
