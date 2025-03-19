@@ -4,3 +4,4 @@
 # Ignore build output
 bin/
 obj/
+packages/

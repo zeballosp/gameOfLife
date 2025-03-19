@@ -33,6 +33,7 @@
          int cols = initialArray[0].Length;
          int[][] nextState = new int[rows][];
 
+         //TODO: This can be optimized by using a single array and calculating the position of the cell
          for (int i = 0; i < rows; i++)
          {
             nextState[i] = new int[cols];
