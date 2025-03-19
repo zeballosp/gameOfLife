@@ -1,7 +1,19 @@
 ﻿namespace GameOfLife_A.Services
 {
+   /// <summary>
+   /// Service that handles the state evolution of Conway's Game of Life.
+   /// </summary>
    public class GameOfLifeService
    {
+      /// <summary>
+      /// Calculates the final state of the Game of Life after a specified number of steps.
+      /// Returns null if the state does not stabilize.
+      /// </summary>
+      /// <param name="initialArray">The initial state of the game grid.</param>
+      /// <param name="statesAway">The number of steps to simulate.</param>
+      /// <returns>
+      /// The final state of the grid if it stabilizes; otherwise, null.
+      /// </returns>
       public int[][] FinalState(int[][] initialArray, int statesAway)
       {
          var final = XAwayState(initialArray, statesAway);
@@ -15,6 +27,12 @@
          return final;
       }
 
+      /// <summary>
+      /// Calculates the state of the grid after a specified number of steps.
+      /// </summary>
+      /// <param name="initialArray">The initial state of the game grid.</param>
+      /// <param name="statesAway">The number of steps to simulate.</param>
+      /// <returns>The state of the grid after the specified steps.</returns>
       public int[][] XAwayState(int[][] initialArray, int statesAway)
       {
          var state = initialArray;
@@ -27,6 +45,11 @@
          return state;
       }
 
+      /// <summary>
+      /// Computes the next state of the grid based on the current state.
+      /// </summary>
+      /// <param name="initialArray">The current state of the grid.</param>
+      /// <returns>The next state of the grid.</returns>
       public int[][] NextState(int[][] initialArray)
       {
          int rows = initialArray.Length;
@@ -55,6 +78,13 @@
          return nextState;
       }
 
+      /// <summary>
+      /// Counts the number of live neighbors for a cell at the specified position.
+      /// </summary>
+      /// <param name="rowPosition">Row index of the cell.</param>
+      /// <param name="colPosition">Column index of the cell.</param>
+      /// <param name="grid">The game grid.</param>
+      /// <returns>The number of live neighbors.</returns>
       public int CountNeighbors(int rowPosition, int colPosition, int[][] grid)
       {
          int rows = grid.Length;
@@ -90,6 +120,12 @@
          return count;
       }
 
+      /// <summary>
+      /// Compares two 2D arrays to check if they are equal.
+      /// </summary>
+      /// <param name="a">First array to compare.</param>
+      /// <param name="b">Second array to compare.</param>
+      /// <returns>True if both arrays are equal; otherwise, false.</returns>
       private bool AreArraysEqual(int[][] a, int[][] b)
       {
          if (a.Length != b.Length) return false;
